@@ -39,29 +39,12 @@ int main(){
     });
 
 
-    std::vector<std::string> v_erase;
-
-    v_erase.push_back(v[0]);
-    std::string last_v = v[0];
-
-    for(auto it = v.begin()+1; it < v.end(); it++){
-
-        if (last_v != *it){
-
-            v_erase.push_back(*it);
-            last_v = *it;
-        }
-        else{
-            continue;
-        }
+    v.erase(std::unique(v.begin(), v.end()), v.end());
 
 
-    }
+    for(int i=0; i<v.size(); i++){
 
-
-    for(int i=0; i<v_erase.size(); i++){
-
-        std::cout << v_erase[i] << std::endl;
+        std::cout << v[i] << std::endl;
 
     }
 
